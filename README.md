@@ -1,35 +1,34 @@
-# Smart-Classroom-Lights
+# iot_light_control
 
-## Description
-Smart Classroom Lights is an IoT application that aims at minimizing the consumption of electricity in classrooms. The system utilizes motion sensors to control the lights in classrooms automatically and the Flutter-based mobile and web-based control and monitoring.
+A new Flutter project.
 
-## Technologies Used
+## Getting Started
 
-### Hardware
-- Microcontroller (ESP32 / Arduino)
-- PIR Motion Sensor
-- Relay Module
-- Power supply / Battery
-- Wi-Fi Module
-- Connecting wires & PCB / Breadboard
-- Light fixtures (LED bulbs / overhead lights)
+This project is a starting point for a Flutter application.
 
-### Software
-- Flutter Framework (mobile app)
-- Android Studio / VS Code
-- Arduino IDE / Embedded C
-- Cloud platform (Firebase / ThingsBoard / AWS IoT)
-- Database (Firebase Realtime DB / Firestore)
-- REST API / MQTT protocol
+A few resources to get you started if this is your first Flutter project:
 
-## Features
-- Motion sensor-based automatic lighting control
-- Automatic ON and OFF lighting
-- Inactivity timer
-- Manual light control via mobile and web application
-- Real-time monitoring of classroom lights
-- Energy-efficient lighting management
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-## Installation Instructions
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
-## Setup
+## Windows quick build fix
+
+If you hit Windows linker/CMake stale-file/permission issues, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\windows_build_fix.ps1 -ForceClean
+```
+
+This removes stale `iot_light_control.exe` and `iot_light_control.ilk`, runs
+`flutter clean`, `flutter pub get`, then `flutter run --debug -d windows`.
+
+- An automatic CMake patch is also added in `windows/CMakeLists.txt` to update
+  frozen `firebase_cpp_sdk_windows/CMakeLists.txt` from 3.1 to 3.5 so builds
+  do not fail due to CMake policy version regression.
+- If needed, set the policy override in Windows shell before running:
+  `setx CMAKE_POLICY_VERSION_MINIMUM 3.5`.
+
